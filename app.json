@@ -20,7 +20,7 @@
             "value": "XXX-XXXXXXXXXX-XXXXXXXXX",
             "required": "true"
         },
-        "WELCOME_MESSAGE": {
+        "SLACK_MESSAGE": {
             "description": "Your Welcome message (JSON)",
             "value": "{\"text\": \"Hey {fist_name} {last_name} akka *{username}*,\n\nI'm a welcome bot. Welcome to our Slack team! :tada:\nLet me give you some instructions.\"}",
             "required": "true"

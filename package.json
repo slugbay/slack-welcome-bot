@@ -13,6 +13,9 @@
         "slugbay",
         "sluggy"
     ],
+    "scripts": {
+        "start": "node ./bot.js"
+    },
     "dependencies": {
         "slackbots": "0.5.3",
         "async": "1.4.2"
