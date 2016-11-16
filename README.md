@@ -19,5 +19,5 @@ node bot.js
 
   - Made with ♥ by [SlugBay](https://www.slugbay.com) engineers
     
-  [![Screenshot](https://github.com/slugbay/slugbay-sluggy-welcome-bot/raw/master/slugbay.jpg)](https://www.slugbay.com)
+  [![Screenshot](https://github.com/slugbay/slack-welcome-bot/raw/master/slugbay.jpg)](https://www.slugbay.com)
 
