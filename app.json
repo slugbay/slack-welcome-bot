@@ -15,14 +15,14 @@
     "repository": "https://github.com/slugbay/slack-welcome-bot",
     "logo": "https://github.com/slugbay/slack-welcome-bot/raw/master/logo.png",
     "env": {
-        "SLACK-TOKEN": {
+        "SLACK_TOKEN": {
             "description": "Your Slack API Token",
             "value": "XXX-XXXXXXXXXX-XXXXXXXXX",
             "required": "true"
         },
-        "WELCOME-MESSAGE": {
+        "WELCOME_MESSAGE": {
             "description": "Your Welcome message (JSON)",
-            "value": "{\"text\": \"Hey *{username}*,\n\nI'm *_{Botname}_*. Welcome to our Slack team! :tada:\nLet me give you some instructions.\"}",
+            "value": "{\"text\": \"Hey {fist_name} {last_name} akka *{username}*,\n\nI'm a welcome bot. Welcome to our Slack team! :tada:\nLet me give you some instructions.\"}",
             "required": "true"
         }
     }
