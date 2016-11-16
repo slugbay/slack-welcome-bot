@@ -1,0 +1,29 @@
+{
+    "name": "Slack Welcome Bot",
+    "description": "This Slack application connects to your slack team and greets new joiners with a sweet custom message",
+    "keywords": [
+        "productivity",
+        "slack",
+        "greetings",
+        "bot",
+        "resources",
+        "developers",
+        "slugbay",
+        "sluggy"
+    ],
+    "website": "https://www.slugbay.com",
+    "repository": "https://github.com/slugbay/slack-welcome-bot",
+    "logo": "https://github.com/slugbay/slack-welcome-bot/raw/master/logo.png",
+    "env": {
+        "SLACK-TOKEN": {
+            "description": "Your Slack API Token",
+            "value": "XXX-XXXXXXXXXX-XXXXXXXXX",
+            "required": "true"
+        },
+        "WELCOME-MESSAGE": {
+            "description": "Your Welcome message (JSON)",
+            "value": "{\"text\": \"Hey *{username}*,\n\nI'm *_{Botname}_*. Welcome to our Slack team! :tada:\nLet me give you some instructions.\"}",
+            "required": "true"
+        }
+    }
+}
