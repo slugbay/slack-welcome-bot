@@ -14,7 +14,7 @@
         "sluggy"
     ],
     "dependencies": {
-        "slackbots": "0.5.3",
+        "simple-slack-bot": "0.0.2",
         "async": "1.4.2"
     }
 }

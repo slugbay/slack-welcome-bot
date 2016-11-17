@@ -4,7 +4,7 @@
 
 var package = require('./package')
 var async = require('async')
-var SlackBot = require('slackbots')
+var SlackBot = require('simple-slack-bot')
 
 /****************
  * PRIVATE FUNCTIONS
@@ -36,7 +36,7 @@ SlackWelcomeBot.prototype.run = function () {
 	    token: this.settings.token
 	})
 
-	this.bot.on('start', function() {
+	this.bot.on('slack.login', function() {
 
 		console.log('************************** Slack Welcome Bot v' + package.version + ' **************************')
 		console.log('')
@@ -51,23 +51,23 @@ SlackWelcomeBot.prototype.run = function () {
 		console.log('******************************************************************************')
 		console.log('[INFO]: bot started')
 
-		this.bot.on('error', function (data) {
+		this.bot.on('ws.error', function (event) {
 			console.log('[ERROR]: Oups, an error occured')
-			console.log(data)
+			console.log(event)
 		})
 
-		this.bot.on('close', function (data) {
+		this.bot.on('ws.close', function (event) {
 			console.log('[INFO]: bot stopped')
-			console.log(data)
+			console.log(event)
 		})
 	    
-	    this.bot.on('message', function (data) {
+	    this.bot.on('ws.message', function (event) {
 
-	    	switch (data.type) {
+	    	switch (event.data.type) {
 	    		case 'team_join':
 
 	    			// Get member informations
-	    			var user = data.user || {}
+	    			var user = event.data.user || {}
 	    			var username = user.name || ''
 	    			var user_id = user.id || ''
 	    			var profile = user.profile || {}
@@ -94,18 +94,28 @@ SlackWelcomeBot.prototype.run = function () {
 
 	    			// Setting extra Slack parameters
 	    			message.link_names = 1
-	    			message.as_user = true 
+	    			message.as_user = true
+
+	    			// Disable caching mode
+	    			this.bot.setCached( false )
 
 	    			// Send message to user
-	    			this.bot.postMessageToUser(username, message.text || null, message)
+	    			this.bot.postMessageToUser(username, message.text || null, message, function (s_result) {
 
-	    			console.log('[INFO]: member (' + username + ') - Welcome message sent')
+	    				// Enable caching mode
+	    				this.bot.setCached( true )
+
+	    				console.log('[INFO]: member (' + username + ') - Welcome message sent')
+
+	    			}.bind(this))
 	    			break
 	    	}
 
 		}.bind(this))
 
 	}.bind(this))
+
+	this.bot.login()
 }
 
 var bot = new SlackWelcomeBot( process.env )
