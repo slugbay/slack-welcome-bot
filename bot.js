@@ -36,7 +36,7 @@ SlackWelcomeBot.prototype.run = function () {
 	    token: this.settings.token
 	})
 
-	this.bot.on('slack.login', function() {
+	this.bot.on('slack.login', function () {
 
 		console.log('************************** Slack Welcome Bot v' + package.version + ' **************************')
 		console.log('')
