@@ -1,8 +1,8 @@
 {
     "name": "slack-welcome-bot",
     "description": "This Slack application connects to your slack team and greets new joiners with a sweet custom message",
-    "version": "0.0.3",
-    "private": true,
+    "version": "0.0.4",
+    "private": false,
     "keywords": [
         "productivity",
         "slack",
